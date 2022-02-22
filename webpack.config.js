@@ -3,6 +3,7 @@ const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
 
 const nodeExternals = require('webpack-node-externals');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -16,16 +17,19 @@ const app = {
         loader: 'ts-loader',
         include: srcPath,
         options: { transpileOnly: true },
-      }
+      },
     ],
   },
   plugins: [
+    new ESLintPlugin({
+      extensions: ['ts'],
+    }),
     new ForkTsCheckerWebpackPlugin(),
     new CopyPlugin({
       patterns: [
-        { from: path.resolve(__dirname, 'package.json'), to: distPath }
+        { from: path.resolve(__dirname, 'package.json'), to: distPath },
       ],
-    })
+    }),
   ],
   externalsPresets: { node: true },
   externals: [nodeExternals()],
@@ -36,7 +40,7 @@ const app = {
   },
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin({ extractComments: false })]
+    minimizer: [new TerserPlugin({ extractComments: false })],
   },
   output: {
     filename: 'app.js',
