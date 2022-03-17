@@ -19,6 +19,10 @@ const app = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.ts'],
+    plugins: [new TsconfigPathsPlugin()],
+  },
   plugins: [
     new ESLintPlugin({ extensions: ['ts'] }),
     new ForkTsCheckerWebpackPlugin(),
