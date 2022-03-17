@@ -10,7 +10,7 @@
     "build": "yarn run build:prod",
     "dev": "npm-run-all --silent --parallel build:dev start:dev",
     "lint": "eslint . --ext .ts",
-    "predev": "yarn install --silent",
+    "predev": "yarn install",
     "prestart": "yarn install --production=true",
     "start:dev": "nodemon dist/app.js -q -w dist -e js",
     "start:prod": "node dist/app.js",
