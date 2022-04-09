@@ -9,7 +9,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const app = {
-  entry: path.resolve(srcPath, 'app.ts'),
+  entry: path.resolve(srcPath, 'App.ts'),
   module: {
     rules: [
       {
