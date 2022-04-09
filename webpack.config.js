@@ -6,6 +6,7 @@ const nodeExternals = require('webpack-node-externals');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const app = {
   entry: path.resolve(srcPath, 'app.ts'),
