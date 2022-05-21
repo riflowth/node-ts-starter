@@ -4,8 +4,8 @@ const srcPath = path.resolve(__dirname, 'src');
 
 const nodeExternals = require('webpack-node-externals');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const app = {
@@ -14,14 +14,14 @@ const app = {
     rules: [
       {
         test: /\.ts$/,
-        loader: 'ts-loader',
-        include: srcPath,
-        options: { transpileOnly: true },
+        loader: 'esbuild-loader',
+        options: {
+          loader: 'ts',
+        },
       },
     ],
   },
   resolve: {
-    extensions: ['.ts'],
     plugins: [new TsconfigPathsPlugin()],
   },
   plugins: [
@@ -36,8 +36,7 @@ const app = {
     modules: false,
   },
   optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin({ extractComments: false })],
+    minimizer: [new ESBuildMinifyPlugin()],
   },
   output: {
     filename: 'app.js',
