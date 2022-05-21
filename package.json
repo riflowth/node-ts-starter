@@ -30,6 +30,7 @@
     "eslint-webpack-plugin": "^3.1.1",
     "fork-ts-checker-webpack-plugin": "^7.2.8",
     "jest": "^28.0.3",
+    "nodemon": "^2.0.16",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "^4.6.4",
     "webpack": "^5.72.0",
