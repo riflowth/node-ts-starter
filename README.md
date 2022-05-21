@@ -5,6 +5,18 @@ with **[TypeScript](https://www.typescriptlang.org/)** and **[webpack](https://w
 **node-ts-starter** will serve you performance and lightweight setup for your nodejs project
 which uses nodejs long-term support version, it will keep you to use new features without any concern.
 
+## 🔧 Usage
+
+There are 2 way to use this starter pack:
+
+1. Click **[Use this template](https://github.com/riflowth/node-ts-starter/generate)** to generate a new GitHub repository with this starter pack.
+2. Run the command below to the directory on your computer where you want to create a project with this starter pack.
+
+```bash
+npx degit riflowth/node-ts-starter my-project
+```
+
+
 ### 📦 Requirements
 
 - Engine
